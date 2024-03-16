@@ -29,3 +29,15 @@ mongoose
 
 app.use("/api/player", playerRoutes);
 app.use("/api/register", userRoute);
+
+// if all routes doesnt work, create middleware for error handling
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+
+  return res.status(statusCode).json({
+    success: false,
+    message,
+    statusCode: statusCode,
+  });
+});
