@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import mongoose, { mongo } from "mongoose";
 import playerRoutes from "./routes/playerRoute.js";
 import userRoute from "./routes/userRoute.js";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -10,6 +11,7 @@ dotenv.config();
 const mongodbURL = process.env.MongoDB_URI;
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   return res.status(206).send("Welcome ro MERN!");
