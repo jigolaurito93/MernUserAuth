@@ -30,7 +30,7 @@ mongoose
   });
 
 app.use("/api/player", playerRoutes);
-app.use("/api/register", userRoute);
+app.use("/api/auth", userRoute);
 
 // if all routes doesnt work, create middleware for error handling
 app.use((err, req, res, next) => {
