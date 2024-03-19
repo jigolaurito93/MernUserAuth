@@ -17,7 +17,7 @@ const Register = () => {
     e.preventDefault();
 
     axios
-      .post(`/api/register/`, formData)
+      .post(`/api/auth/signup`, formData)
       .then(() => {
         navigate("/");
         console.log("User created successfully");
@@ -64,7 +64,7 @@ const Register = () => {
         {errorMessage && errorMessage}
       </h1>
       <div className="w-96 mx-auto flex gap-2">
-        <div>Have an account?</div>
+        <div>Already have an account?</div>
         <Link to="/login" className="text-blue-600">
           Login
         </Link>
